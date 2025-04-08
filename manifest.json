@@ -1,0 +1,15 @@
+{
+  "name": "Anti Worker Crash",
+  "description": "Limits the number of Web Workers per domain.",
+  "version": "0.1",
+  "manifest_version": 3,
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-script.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "permissions": ["scripting"],
+  "host_permissions": ["<all_urls>"]
+}
