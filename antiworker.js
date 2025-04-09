@@ -1,5 +1,5 @@
 (() => {
-  const MAX_WORKERS = 5;
+  const MAX_WORKERS = 40;
   let workerCount = 0;
   let sharedWorkerCount = 0;
 
