@@ -1,15 +1,23 @@
 {
-  "name": "Anti Worker Crash",
-  "description": "Limits the number of Web Workers per domain.",
-  "version": "0.1",
   "manifest_version": 3,
+  "name": "AntiCrash",
+  "version": "0.4",
+  "permissions": ["scripting", "activeTab"],
+  "host_permissions": ["<all_urls>"],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["content-script.js"],
+      "js": ["injector.js"],
       "run_at": "document_start"
     }
   ],
-  "permissions": ["scripting"],
-  "host_permissions": ["<all_urls>"]
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["antiworker.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }
